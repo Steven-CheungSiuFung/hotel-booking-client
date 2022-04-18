@@ -4,6 +4,10 @@ const INITIAL_STATE = {
     currentUser: null,
 }
 
+if (window.localStorage.getItem("auth")) {
+    INITIAL_STATE.currentUser = JSON.parse(window.localStorage.getItem("auth"))
+}
+
 export const UserReducer = (state = INITIAL_STATE, action) => {
     const { type, payload } = action;
 
