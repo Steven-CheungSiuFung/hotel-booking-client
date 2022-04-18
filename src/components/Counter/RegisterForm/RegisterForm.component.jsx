@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./RegisterForm.styles.css";
 
 const RegisterForm = () => {
+    const navigate = useNavigate();
+
     const INITIAL_STATE = {
         name: "",
         email: "",
@@ -12,6 +17,7 @@ const RegisterForm = () => {
 
     const [ formState, setFormState ] = useState(INITIAL_STATE);
     const { name, email, password } = formState;
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -22,11 +28,14 @@ const RegisterForm = () => {
                 email,
                 password,
             });
-            console.log("REGISTER USER ===> ", response);
 
+            console.log("REGISTER USER ===> ", response);
+            toast.success("Register Success!", {theme: "colored"});
             setFormState(INITIAL_STATE);
+            setTimeout(() => {navigate("/login")}, 2000);
+
         } catch (error) {
-            console.log(error);
+            toast.error(error.response.data, {theme: 'dark'});
         }
     }
 
@@ -39,6 +48,7 @@ const RegisterForm = () => {
     
     return (
         <div className="p-4">
+            <ToastContainer />
             <form onSubmit={handleSubmit}>
                 <div className="form-floating mb-3">
                     <input required type="text" className="form-control" name="name" value={name} placeholder="Enter Name" onChange={handleChange} autoComplete="off"/>
