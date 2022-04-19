@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import DashboardNav from '../../components/DashboardNav/DashboardNav.component';
 import StripeConnect from '../../components/StripeConnect/StripeConnect.component';
 
-const Dashboard = () => {
+const DashboardSeller = () => {
     return (
         <>
             <div className="container-fluid bg-light p-5">
@@ -13,10 +13,10 @@ const Dashboard = () => {
             <div className="container-fluid py-3">
                 <div className="row d-flex align-items-center">
                     <div className="col-md-10">
-                        <h2 className="my-auto">Your booking</h2>
+                        <h2 className="my-auto">Your hotels</h2>
                     </div>
                     <div className="col-md-2">
-                        <Link to="/" className="btn btn-primary">Browse Hotels</Link>
+                        <Link to="/hotels/new-hotel" className="btn btn-primary">+ Add Hotels</Link>
                     </div>
                 </div>
             </div>
@@ -26,4 +26,4 @@ const Dashboard = () => {
     )
 };
 
-export default Dashboard;
+export default DashboardSeller;

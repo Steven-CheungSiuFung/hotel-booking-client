@@ -4,7 +4,7 @@ const Register = () => {
 
     return (
         <>
-            <div className="container-fluid bg-secondary p-5 text-center">
+            <div className="container-fluid bg-light p-5 text-center">
                 <h1>Register</h1>
             </div>
 

@@ -1,9 +1,9 @@
 import { createSelector } from "reselect";
 
-const selectUserReducer = (state) => state.user;
+const selectUserReducer = (state) => state.auth;
 
 export const selectCurrentUser = createSelector(
     [selectUserReducer],
-    (userSlice) => 
-        userSlice.currentUser
+    (authSlice) => 
+        authSlice.currentUser
 )

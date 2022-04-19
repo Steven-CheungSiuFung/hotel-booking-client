@@ -4,11 +4,11 @@ import { Navigate, useLocation } from 'react-router-dom';
 import { selectCurrentUser } from '../../store/user/user.selector';
 
 const PrivateRoute = ({children}) => {
-    const user = useSelector(selectCurrentUser);
+    const auth = useSelector(selectCurrentUser);
     const location = useLocation();
 
     return (
-        user && user.token 
+        auth && auth.token 
             ? children
             : <Navigate to="/login" state={{ from: location }} replace />
     )
