@@ -9,7 +9,6 @@ const { Meta } = Card;
 const StripeConnect = () => {
     const auth = useSelector(selectCurrentUser);
     const { user } = auth;
-    console.log(user);
 
     return (
         <div className="d-flex justify-content-around">

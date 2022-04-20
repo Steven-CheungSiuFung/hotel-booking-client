@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useDispatch } from "react-redux";
 import { useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
-import { login } from '../../actions/auth';
+import { login } from '../../actions/auth.action';
 import { signInUser } from '../../store/user/user.action';
 
 const LoginForm = () => {
