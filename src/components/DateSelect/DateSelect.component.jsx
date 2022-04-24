@@ -4,7 +4,7 @@ import monent from "moment";
 const DateSelect = ({formData, setFormData}) => {
 
     return (
-        <div className="cotainer-fluid d-flex mt-4 mb-3 justify-content-start align-items-center px-2">
+        <div className="cotainer-fluid d-flex mt-4 mb-3 justify-content-start align-items-center px-0">
             <div className="cotainer-fluid d-flex justify-content-start align-items-center px-1">
                 <p className="my-0">Available Date: </p>
             </div>
@@ -17,7 +17,7 @@ const DateSelect = ({formData, setFormData}) => {
                     />
                 </Space>
             </div>
-            <div className="mx-2">
+            <div className="ms-2">
                 <Space direction="vertical">
                     <DatePicker 
                         placeholder="To"

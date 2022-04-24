@@ -1,7 +1,13 @@
 import React, { useState } from 'react';
+import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
+
 import InputBox from '../InputBox/InputBox.component';
 import AutoComplete from '../AutoComplete/AutoComplete.component';
 import DateSelect from "../DateSelect/DateSelect.component";
+import NumberSelect from "../NumberSelect/NumberSelect.component";
+
+import { createHotel } from "../../actions/hotel.action";
 
 const INITIAL_STATE = {
     title: "",
@@ -15,6 +21,9 @@ const INITIAL_STATE = {
 }
 
 const NewHotelForm = () => {
+    const auth = useSelector(selectCurrentUser);
+    const { token } = auth;
+
     const [formData, setFormData] = useState(INITIAL_STATE);
     const [preview, setPreview] = useState("https://via.placeholder.com/150.png?text=Preview");
 
@@ -31,9 +40,14 @@ const NewHotelForm = () => {
         setFormData({...formData, image: event.target.files[0]});
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        console.log(formData);
+        const fd = new FormData();
+        Object.keys(formData).map((key) => {
+            return fd.append(key, formData[key]);
+        })
+        const response = await createHotel(token, fd);
+        console.log(response.data);
     }
 
   return (
@@ -55,11 +69,20 @@ const NewHotelForm = () => {
                         </div>
 
                         <InputBox type="text" name="title" value={title} onChange={onChangeHandler} />
-                        <InputBox textarea={true} name="content" value={content} onChange={onChangeHandler} />
                         <AutoComplete formData={formData} setFormData={setFormData} />
-                        <InputBox type="text" name="bed" value={bed} onChange={onChangeHandler} />
+                        <InputBox textarea={true} name="content" value={content} onChange={onChangeHandler} />
+                        
+                        <div className="d-flex justify-content-between">
+                            <div className="d-flex">
+                                <NumberSelect formData={formData} setFormData={setFormData} />
+                                {/* <InputBox type="text" name="bed" value={bed} onChange={onChangeHandler} /> */}
+                            </div>
+                            <div className="d-flex">
+                                <DateSelect formData={formData} setFormData={setFormData} />
+                            </div>
+                        </div>
+                        
                         <InputBox type="text" name="price" value={price} onChange={onChangeHandler} />
-                        <DateSelect formData={formData} setFormData={setFormData} />
                         <div className="d-grid py-2">
                             <button className="btn btn-outline-primary">Save</button>
                         </div>
