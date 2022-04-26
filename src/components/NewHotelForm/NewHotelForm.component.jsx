@@ -48,6 +48,7 @@ const NewHotelForm = () => {
         })
         const response = await createHotel(token, fd);
         console.log(response.data);
+        // setFormData(INITIAL_STATE);
     }
 
   return (

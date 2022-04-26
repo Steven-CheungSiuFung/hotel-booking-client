@@ -14,10 +14,10 @@ const AutoComplete = ({ formData, setFormData }) => {
         const ll = await getLatLng(result[0]);
         setAddress(value);
         setCoordinates(ll);
-        const location = {
+        const location = JSON.stringify({
             address: value,
             coordinates: ll,
-        }
+        })
         setFormData({...formData, location: location});
     }
 

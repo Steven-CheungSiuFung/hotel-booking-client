@@ -9,3 +9,7 @@ export const createHotel = async (token, data) => await axios.post(
         },
     },
 );
+
+export const getHotels = async () => await axios.get(
+    `${process.env.REACT_APP_API}/hotels`,
+)
