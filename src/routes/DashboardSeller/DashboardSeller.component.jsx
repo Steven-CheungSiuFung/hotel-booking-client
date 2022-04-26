@@ -9,6 +9,7 @@ import StripeConnect from '../../components/StripeConnect/StripeConnect.componen
 import { createConnectAccount } from '../../actions/stripe.action';
 
 import { BankOutlined, LoadingOutlined } from "@ant-design/icons";
+import SellerHotels from '../../components/SellerHotels/SellerHotels.component';
 
 const DashboardSeller = () => {
     const auth = useSelector(selectCurrentUser);
@@ -32,13 +33,16 @@ const DashboardSeller = () => {
     const connected = () => {
         return (
             <div className="container-fluid py-3">
-                <div className="row d-flex align-items-center">
-                    <div className="col-md-10">
+                <div className="d-flex align-items-center justify-content-between">
+                    <div className="d-flex">
                         <h2 className="my-auto">Your hotels</h2>
                     </div>
-                    <div className="col-md-2">
-                        <Link to="/hotels/new-hotel" className="btn btn-primary">+ Add Hotels</Link>
+                    <div className="d-flex">
+                            <Link to="/hotels/new-hotel" className="btn btn-primary">+ Add Hotels</Link>
                     </div>
+                </div>
+                <div className="d-flex">
+                    <SellerHotels />
                 </div>
             </div>
         )

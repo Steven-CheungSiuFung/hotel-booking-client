@@ -1,5 +1,6 @@
-import React from 'react'
-import NewHotelForm from '../../../components/NewHotelForm/NewHotelForm.component'
+import React from 'react';
+import NewHotelForm from '../../../components/NewHotelForm/NewHotelForm.component';
+import { createHotel } from '../../../actions/hotel.action';
 
 
 const NewHotel = () => {
@@ -9,7 +10,7 @@ const NewHotel = () => {
             <div className="container-fluid bg-light p-5">
                 <h1>Add New Hotel</h1>
             </div>
-            <NewHotelForm />
+            <NewHotelForm formSubmitAction={createHotel} />
         </>
         
     )

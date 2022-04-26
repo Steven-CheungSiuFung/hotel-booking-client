@@ -1,34 +1,40 @@
-import React, { useState } from 'react';
-import { useSelector } from "react-redux";
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 
 import InputBox from '../InputBox/InputBox.component';
 import AutoComplete from '../AutoComplete/AutoComplete.component';
 import DateSelect from "../DateSelect/DateSelect.component";
 import NumberSelect from "../NumberSelect/NumberSelect.component";
+import { selectHotel } from '../../store/hotel/hotel.selector';
+import { resetCurrentHotel } from '../../store/hotel/hotel.action';
+import { useNavigate } from 'react-router-dom';
 
+const INITIAL_STATE = {};
+const INITIAL_IMAGE_URL = "https://via.placeholder.com/150.png?text=Preview";
 
-// import { createHotel } from "../../actions/hotel.action";
-
-const INITIAL_STATE = {
-    title: "",
-    location: {},
-    content: "",
-    bed: "",
-    price: "",
-    image: {},
-    from: "",
-    to: ""
-}
-
-const NewHotelForm = ({formSubmitAction}) => {
+const EditHotelForm = ({formSubmitAction}) => {
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
     const auth = useSelector(selectCurrentUser);
+    const hotel = useSelector(selectHotel);
     const { token } = auth;
 
     const [formData, setFormData] = useState(INITIAL_STATE);
-    const [preview, setPreview] = useState("https://via.placeholder.com/150.png?text=Preview");
+
+    const [preview, setPreview] = useState(INITIAL_IMAGE_URL);
 
     const { title, location, content, bed, price, image, from, to } = formData;
+
+    useEffect(() => {
+        if (hotel && hotel._id) {
+            setFormData({...formData, title: hotel.title, _id: hotel._id});
+            setPreview(`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`);
+        } else {
+            navigate("/dashboard/seller");
+        }
+
+    }, [])
 
     const onChangeHandler = (event) => {
         const name = event.target.name;
@@ -43,13 +49,15 @@ const NewHotelForm = ({formSubmitAction}) => {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        console.log(formData);
         const fd = new FormData();
         Object.keys(formData).map((key) => {
             return fd.append(key, formData[key]);
         })
         const response = await formSubmitAction(token, fd);
         console.log(response.data);
-        setFormData(INITIAL_STATE);
+        dispatch(resetCurrentHotel());
+        navigate("/dashboard/seller")
     }
 
   return (
@@ -96,4 +104,4 @@ const NewHotelForm = ({formSubmitAction}) => {
   )
 }
 
-export default NewHotelForm;
+export default EditHotelForm;
