@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { updateCurrentHotel } from '../../store/hotel/hotel.action';
 
-const HotelCard = ({hotel, user}) => {
+const HotelCard = ({hotel, user, handleDeleteHotel}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const location = JSON.parse(hotel.location);
@@ -11,6 +11,10 @@ const HotelCard = ({hotel, user}) => {
     const onClickEdit = () => {
         dispatch(updateCurrentHotel(hotel));
         navigate("/hotels/edit-hotel");
+    }
+
+    const onClickDelete = () => {
+        handleDeleteHotel(hotel._id);
     }
     
     return (
@@ -38,8 +42,7 @@ const HotelCard = ({hotel, user}) => {
                         ? 
                         (<div className="d-flex justify-content-around">
                             <div onClick={onClickEdit}>Edit</div>
-                            {/* <Link to="/hotels/edit-hotel">Edit</Link>
-                            <Link to="/hotels/edit-hotel">Delete</Link> */}
+                            <div onClick={onClickDelete}>Delete</div>
                         </div>) 
                         : null}
                 </div>

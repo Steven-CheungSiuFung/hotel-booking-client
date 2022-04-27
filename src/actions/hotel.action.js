@@ -32,3 +32,12 @@ export const editHotel = async (token, data) => await axios.post(
         },
     },
 )
+
+export const deleteHotel = async (token, hotelId) => await axios.delete(
+    `${process.env.REACT_APP_API}/delete-hotel/${hotelId}`,
+    {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    },
+)
