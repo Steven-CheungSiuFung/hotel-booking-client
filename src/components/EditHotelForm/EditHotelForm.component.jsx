@@ -28,7 +28,7 @@ const EditHotelForm = ({formSubmitAction}) => {
 
     useEffect(() => {
         if (hotel && hotel._id) {
-            setFormData({...formData, title: hotel.title, _id: hotel._id});
+            setFormData({...formData, title: hotel.title, content: hotel.content, _id: hotel._id});
             setPreview(`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`);
         } else {
             navigate("/dashboard/seller");
@@ -57,7 +57,7 @@ const EditHotelForm = ({formSubmitAction}) => {
         const response = await formSubmitAction(token, fd);
         console.log(response.data);
         dispatch(resetCurrentHotel());
-        navigate("/dashboard/seller")
+        navigate("/dashboard/seller");
     }
 
   return (

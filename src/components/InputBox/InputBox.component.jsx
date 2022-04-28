@@ -7,7 +7,7 @@ const InputBox = ({ type, name, value, placeholder, onChange, textarea }) => {
         <div className="form-floating mb-3">
             {textarea 
                 ? 
-                <textarea className="form-control" placeholder="Content" name={name} style={{height: "100px"}} onChange={onChange} autoComplete="off"></textarea> 
+                <textarea className="form-control" placeholder={placeholderWords} name={name} value={value} style={{height: "100px"}} onChange={onChange} autoComplete="off" /> 
                 : 
                 <input required type={type} className="form-control" name={name} value={value} placeholder={placeholderWords} onChange={onChange} autoComplete="off"/>
             }

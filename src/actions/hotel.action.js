@@ -23,7 +23,7 @@ export const getSellerHotels = async (token) => await axios.get(
     },
 );
 
-export const editHotel = async (token, data) => await axios.post(
+export const editHotel = async (token, data) => await axios.put(
     `${process.env.REACT_APP_API}/edit-hotel`,
     data,
     {
@@ -40,4 +40,8 @@ export const deleteHotel = async (token, hotelId) => await axios.delete(
             Authorization: `Bearer ${token}`,
         },
     },
+)
+
+export const getHotelDetail = async (hotelId) => await axios.get(
+    `${process.env.REACT_APP_API}/hotel-detail/${hotelId}`,
 )

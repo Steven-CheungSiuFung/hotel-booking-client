@@ -11,6 +11,7 @@ import DashboardSeller from "./routes/DashboardSeller/DashboardSeller.component"
 import NewHotel from "./routes/hotels/NewHotel/NewHotel.component";
 import StripeCallback from "./routes/stripe/StripeCallback/StripeCallback.component";
 import EditHotel from "./routes/hotels/EditHotel/EditHotel.component";
+import ViewHotel from "./routes/hotels/ViewHotel/ViewHotel.component";
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="hotels/new-hotel" element={<PrivateRoute><NewHotel /></PrivateRoute>} />
         <Route path="hotels/edit-hotel" element={<PrivateRoute><EditHotel /></PrivateRoute>} />
         <Route path="stripe/callback" element={<PrivateRoute><StripeCallback /></PrivateRoute>} />
+        <Route path="hotel/:hotelId" element={<ViewHotel />} />
       </Route>
     </Routes>
   )
