@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useNavigate, useParams } from "react-router-dom";
 import { getHotelDetail } from '../../../actions/hotel.action';
+import { getSessionId } from '../../../actions/stripe.action';
 import { selectCurrentUser } from '../../../store/user/user.selector';
 
 const INITIAL_STATE = {
@@ -40,10 +41,12 @@ const ViewHotel = () => {
         readHotel();
     },[])
 
-    const handleClick = (event) => {
+    const handleClick = async (event) => {
         event.preventDefault();
         if (auth && auth.token) {
-            console.log("Booking");
+            console.log("Booking", auth.token, hotel._id);
+            let response = await getSessionId(auth.token, hotel._id);
+            window.location.href = response.data.sessionURL;
         } else {
             navigate("/login");
         }
@@ -60,7 +63,7 @@ const ViewHotel = () => {
                 </div>
                 <div className="col-md-7 col-12 d-flex flex-column p-3">
                     <h3>{`${hotel.title}`}</h3>
-                    <div className="w-auto mb-2" style={{height: "4rem"}}>
+                    <div className="w-auto mb-2" style={{height: "3rem"}}>
                         <p>{`${hotel.content}`}</p>
                     </div>
                     <p>{`${hotel.location?.address}`}</p>
