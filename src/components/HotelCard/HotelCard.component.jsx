@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { updateCurrentHotel } from '../../store/hotel/hotel.action';
 
+import "./HotelCard.styles.css";
+
 const HotelCard = ({hotel, user, handleDeleteHotel}) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -24,9 +26,16 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
                     <Link to={`/hotel/${hotel._id}`}>
                         {hotel.image && hotel.image.contentType 
                             ? 
-                            (<img className="card-img-top" src={`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`} alt="hotel" />) 
+                            (
+                            <div className="bg-light d-flex justify-content-center align-items-center ratio ratio-4x3">
+                                <img className="img img-fluid hotel-card-img" src={`${process.env.REACT_APP_API}/hotel/image/${hotel._id}`} alt="hotel" />
+                            </div>     
+                            ) 
                             : 
-                            (<img className="card-img-top" src="https://via.placeholder.com/200.png?text=Preview" alt="hotel" />)
+                            (<div className="bg-light d-flex justify-content-center align-items-center ratio ratio-4x3">
+                                <img className="card-img-top" src="https://via.placeholder.com/200.png?text=Preview" alt="hotel" />
+                            </div>
+                            )
                         }
                         
                         <div className="card-body">
@@ -34,7 +43,7 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
                             <p className="card-text">{`${location.address}`}</p>
                             <div className="d-flex justify-content-around">
                                 <p className="d-flex">{`${hotel.bed} bed`}</p>
-                                <p className="d-flex">{`price: ${hotel.price}`}</p>
+                                <p className="d-flex">{`price: ${hotel.price} (USD)`}</p>
                             </div>
                         </div>
                     </Link>

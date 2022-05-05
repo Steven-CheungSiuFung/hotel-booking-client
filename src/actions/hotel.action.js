@@ -45,3 +45,12 @@ export const deleteHotel = async (token, hotelId) => await axios.delete(
 export const getHotelDetail = async (hotelId) => await axios.get(
     `${process.env.REACT_APP_API}/hotel-detail/${hotelId}`,
 )
+
+export const getHotelBooking = async (token) => await axios.get(
+    `${process.env.REACT_APP_API}/user-hotel-booking`,
+    {
+        headers: {
+            Authorization: `Bearer ${token}`,
+        },
+    },
+)

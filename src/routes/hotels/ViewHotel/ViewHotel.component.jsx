@@ -33,7 +33,6 @@ const ViewHotel = () => {
         const response = await getHotelDetail(hotelId);
         const hotelData = response.data;
         hotelData.location = await JSON.parse(hotelData.location);
-        console.log(hotelData);
         setHotel(hotelData);
     }
 
@@ -44,7 +43,6 @@ const ViewHotel = () => {
     const handleClick = async (event) => {
         event.preventDefault();
         if (auth && auth.token) {
-            console.log("Booking", auth.token, hotel._id);
             let response = await getSessionId(auth.token, hotel._id);
             window.location.href = response.data.sessionURL;
         } else {

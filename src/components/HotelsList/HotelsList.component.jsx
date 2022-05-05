@@ -7,9 +7,7 @@ const HotelsList = () => {
 
     const getHotelsList = async () => {
         const hotelsData = await getHotels();
-        console.log(hotelsData.data);
         setHotels(hotelsData.data);
-        console.log(hotels);
     }
 
     useEffect(() => {
@@ -18,8 +16,7 @@ const HotelsList = () => {
 
     return (
         <>
-            <div className="container-fluid">
-                <div>HotelsList</div>
+            <div className="container-fluid py-3">
                 <div className="row gap-0 d-flex justify-content-start">
                     {hotels.map(hotel => <HotelCard key={hotel._id} hotel={hotel} />)}
                 </div>
