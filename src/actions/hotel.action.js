@@ -54,3 +54,10 @@ export const getHotelBooking = async (token) => await axios.get(
         },
     },
 )
+
+export const getFilteredHotels = async (formData) => await axios.post(
+    `${process.env.REACT_APP_API}/search-hotels`,
+    {
+        formData
+    },
+)

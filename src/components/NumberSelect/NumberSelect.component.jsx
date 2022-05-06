@@ -6,7 +6,7 @@ const { Option } = Select;
 const NumberSelect = ({formData, setFormData}) => {
 
     const handleChange = (value) => {
-        setFormData({...formData, bed: value})
+        setFormData({...formData, bed: value});
     }
 
     return (
@@ -22,7 +22,7 @@ const NumberSelect = ({formData, setFormData}) => {
                     <Option value={3}>3</Option>
                     <Option value={4}>4</Option>
                     <Option value={5}>5</Option>
-                    <Option value={"5+"}>5+</Option>
+                    <Option value={""}>All</Option>
                 </Select>
             </div>
         </div>

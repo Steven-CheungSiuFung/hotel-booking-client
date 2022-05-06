@@ -1,0 +1,10 @@
+.location-reset {
+    background-color: white;
+    border: transparent;
+    border-bottom: 1px solid #ced4da;
+    cursor: pointer;
+}
+
+.location-label {
+    z-index: 3;
+}

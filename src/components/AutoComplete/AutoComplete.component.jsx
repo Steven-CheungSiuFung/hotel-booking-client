@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import PlacesAutocomplete, {geocodeByAddress, getLatLng} from 'react-places-autocomplete';
 
+import "./AutoComplete.styles.css";
+
 const AutoComplete = ({ formData, setFormData }) => {
     const [address, setAddress] = useState("");
     const [coordinates, setCoordinates] = useState({
@@ -21,6 +23,12 @@ const AutoComplete = ({ formData, setFormData }) => {
         setFormData({...formData, location: location});
     }
 
+    const resetLocation = () => {
+        setFormData({...formData, location: ""});
+        setAddress("");
+        setCoordinates({});
+    }
+
     return (
         <div className="container-fluid px-0 mb-1">
             <PlacesAutocomplete
@@ -30,14 +38,15 @@ const AutoComplete = ({ formData, setFormData }) => {
             >
                 {({ getInputProps, suggestions, getSuggestionItemProps, loading }) => (
                     <div>
-                        <div className="form-floating mb-1">
+                        <div className="form-floating mb-1 input-group">
                             <input name="location"
                                 {...getInputProps({
                                     placeholder: 'Search Places ...',
                                     className: 'location-search-input form-control',
                                 })}
                             />
-                            <label htmlFor="loaction">Location</label>
+                            <label className="location-label" htmlFor="loaction">Location</label>
+                            <span className="input-group-text location-reset" onClick={resetLocation}>X</span>
                         </div>
 
                         <div className="autocomplete-dropdown-container">

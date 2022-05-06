@@ -6,7 +6,7 @@ const DateSelect = ({formData, setFormData}) => {
     return (
         <div className="cotainer-fluid d-flex mt-4 mb-3 justify-content-start align-items-center px-0">
             <div className="cotainer-fluid d-flex justify-content-start align-items-center px-1">
-                <p className="my-0">Available Date: </p>
+                <p className="my-0">Date: </p>
             </div>
             <div className="mx-2">
                 <Space direction="vertical">
