@@ -10,7 +10,7 @@ const NumberSelect = ({formData, setFormData}) => {
     }
 
     return (
-        <div className="d-flex mt-4 mb-3 justify-content-start align-items-center px-2 pe-0">
+        <div className="d-flex mt-4 mb-3 justify-content-start align-items-center pe-0">
             <div className="d-flex justify-content-start align-items-center px-1">
                 <p className="my-0">Bed: </p>
             </div>

@@ -21,7 +21,7 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
     
     return (
         <>
-            <div className="col-lg-3 col-md-4 col-sm-6 d-flex justify-content-center px-1">
+            <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center px-1 py-1">
                 <div className="card text-center" style={{width: "16rem"}}>
                     <Link to={`/hotel/${hotel._id}`}>
                         {hotel.image && hotel.image.contentType 

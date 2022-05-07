@@ -83,7 +83,7 @@ const EditHotelForm = ({formSubmitAction}) => {
                         <InputBox textarea={true} name="content" value={content} onChange={onChangeHandler} />
                         
                         <div className="d-flex justify-content-between">
-                            <div className="d-flex">
+                            <div className="d-flex px-2">
                                 <NumberSelect formData={formData} setFormData={setFormData} />
                                 {/* <InputBox type="text" name="bed" value={bed} onChange={onChangeHandler} /> */}
                             </div>

@@ -22,20 +22,27 @@ const SearchHotelForm = ({searchHotels}) => {
     }
 
     return (
-        <div className="container-fluid py-3">
+        <div className="container-fluid py-3 px-0">
             <form onSubmit={handleSubmit}>
-                <AutoComplete formData={formData} setFormData={setFormData} />
-                <div className="d-flex justify-content-between align-items-center">
-                    <div className="d-flex">
-                        <DateSelect formData={formData} setFormData={setFormData} />
+                <div className="row">
+                    <div className="col-12">
+                        <AutoComplete formData={formData} setFormData={setFormData} />
                     </div>
-                    <div className="d-flex">
-                        <NumberSelect formData={formData} setFormData={setFormData} />
-                    </div>
-                    <div className="d-flex">
-                        <button className="btn btn-outline-primary search-button">Search</button>
+                    <div className="col-12 row pe-0">
+                        <div className="col-md-6 col-12">
+                            <DateSelect formData={formData} setFormData={setFormData} />
+                        </div>
+                        <div className="col-md-6 col-12 row pe-0">
+                            <div className="col-6">
+                                <NumberSelect formData={formData} setFormData={setFormData} />
+                            </div>
+                            <div className="col-6 d-flex pe-0 pt-2">
+                                <button className="btn btn-outline-primary search-button">Search</button>
+                            </div> 
+                        </div>
                     </div>
                 </div>
+
             </form>
         </div>
     )
