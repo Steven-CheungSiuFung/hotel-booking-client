@@ -1,0 +1,16 @@
+.hotels-list-header {
+    position: relative;
+    height: 40vh;
+    width: 100%;
+    background-color: coral;
+    margin-bottom: 5rem;
+}
+
+.serach-form-container {
+    position: relative;
+    top: 33vh;
+    height: 14vh;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 4px;
+}

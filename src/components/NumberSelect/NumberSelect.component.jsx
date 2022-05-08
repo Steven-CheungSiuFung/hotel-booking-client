@@ -11,10 +11,7 @@ const NumberSelect = ({formData, setFormData}) => {
 
     return (
         <div className="d-flex mt-4 mb-3 justify-content-start align-items-center pe-0">
-            <div className="d-flex justify-content-start align-items-center px-1">
-                <p className="my-0">Bed: </p>
-            </div>
-            <div className="ms-2 w-100">
+            <div className="w-100">
                 <Select placeholder="Number of bed" style={{ width: "100%", display: "flex" }} onChange={handleChange}>
                     <Option value={0}>0</Option>
                     <Option value={1}>1</Option>

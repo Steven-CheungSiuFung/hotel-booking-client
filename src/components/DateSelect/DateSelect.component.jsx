@@ -5,22 +5,19 @@ const DateSelect = ({formData, setFormData}) => {
 
     return (
         <div className="cotainer-fluid d-flex mt-4 mb-3 justify-content-start align-items-center px-0">
-            <div className="cotainer-fluid d-flex justify-content-start align-items-center px-1">
-                <p className="my-0">Date: </p>
-            </div>
-            <div className="mx-2">
+            <div className="mx-0">
                 <Space direction="vertical">
                     <DatePicker 
-                        placeholder="From"
+                        placeholder="Check in"
                         onChange={(date, dateString) => setFormData({...formData, from: dateString})}
                         disabledDate={(current) => current && current.valueOf() < monent().subtract(1, "day")}
                     />
                 </Space>
             </div>
-            <div className="ms-2">
+            <div className="mx-0">
                 <Space direction="vertical">
                     <DatePicker 
-                        placeholder="To"
+                        placeholder="Chect out"
                         onChange={(date, dateString) => setFormData({...formData, to: dateString})} 
                         disabledDate={(current) => current && current.valueOf() < monent().subtract(1, "day")}
                     />

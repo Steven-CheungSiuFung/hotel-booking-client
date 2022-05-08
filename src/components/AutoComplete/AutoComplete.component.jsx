@@ -74,11 +74,11 @@ const AutoComplete = ({ formData, setFormData }) => {
                     </div>
                 )}
             </PlacesAutocomplete>
-            <div className="container-fluid d-flex justify-content-end px-0">
-                {/* <p>Address: {address}</p> */}
+            {/* <div className="container-fluid d-flex justify-content-end px-0">
+                <p>Address: {address}</p>
                 <small className="mx-4 text-muted">lat: {coordinates.lat}</small>
                 <small className="mx-0 text-muted">lng: {coordinates.lng}</small>
-            </div>
+            </div> */}
         </div>
     )
 }
