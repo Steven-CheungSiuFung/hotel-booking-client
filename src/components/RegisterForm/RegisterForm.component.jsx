@@ -64,7 +64,9 @@ const RegisterForm = () => {
                     <input required type="password" className="form-control" name="password" value={password} placeholder="Enter password" onChange={handleChange} autoComplete="off"/>
                     <label htmlFor="password">password</label>
                 </div>
-                <button className="btn btn-primary btn-lg">Submit</button>
+                <div class="d-grid gap-2 py-2">
+                    <button className="btn btn-outline-secondary">Submit</button>
+                </div> 
             </form>
         </div>
         
