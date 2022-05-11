@@ -27,8 +27,14 @@ const HotelsList = () => {
     return (
         <>
             <div className="container-fluid d-flex flex-column justify-content-center align-items-center px-0">
-                <div className="d-flex justify-content-center hotels-list-header">
-                    <div className="d-flex w-75 serach-form-container">
+                <div className="d-flex flex justify-content-center align-items-center hotels-list-header">
+                    <div className="d-flex hotel-list-header-banner justify-content-center align-items-center">
+                        <div className="d-flex flex-column w-75 align-items-start">
+                            <h1 className="text-white">Start your next trip</h1>
+                            <h5 className="text-white">Search for your destination and discover new experiences...</h5>
+                        </div>
+                    </div>
+                    <div className="w-75 serach-form-container">
                         <SearchHotelForm searchHotels={searchHotels} />
                     </div>
                 </div>

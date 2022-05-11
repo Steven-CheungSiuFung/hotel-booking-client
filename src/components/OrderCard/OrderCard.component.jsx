@@ -25,7 +25,7 @@ const OrderCard = ({order}) => {
                         <p className="mx-1">-</p>
                         <p className="mx-2">{`${moment(order.hotel.to).format("DD MMMM YYYY")}`}</p> 
                     </div>
-                    <p className="h6">{`$${order.hotel.price} (USD)`}</p>
+                    <p className="h6">{`USD $${order.hotel.price} / day`}</p>
                 </div>
             </div>
         </div>

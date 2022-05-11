@@ -74,7 +74,7 @@ const NewHotelForm = ({formSubmitAction}) => {
                         <AutoComplete formData={formData} setFormData={setFormData} />
                         <InputBox textarea={true} name="content" value={content} onChange={onChangeHandler} />
                         
-                        <div className="d-flex justify-content-between">
+                        <div className="d-flex justify-content-between py-3">
                             <div className="d-flex px-2">
                                 <NumberSelect formData={formData} setFormData={setFormData} />
                                 {/* <InputBox type="text" name="bed" value={bed} onChange={onChangeHandler} /> */}

@@ -3,3 +3,18 @@
     --secondary-color: rgba(255, 98, 41, 1);
     --primary-light-color: rgba(255, 98, 41, 0.7);
   }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.bg-theme-color {
+  background-color: var(--primary-light-color);
+}
+
+.bg-primary-header {
+  height: 25vh;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}

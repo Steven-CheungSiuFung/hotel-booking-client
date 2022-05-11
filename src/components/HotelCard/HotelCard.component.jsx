@@ -22,7 +22,7 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
     return (
         <>
             <div className="col-xl-3 col-lg-4 col-md-6 col-sm-6 d-flex justify-content-center px-1 py-1">
-                <div className="card text-center" style={{width: "16rem"}}>
+                <div className="card h-100 text-center" style={{width: "16rem"}}>
                     <Link to={`/hotel/${hotel._id}`}>
                         {hotel.image && hotel.image.contentType 
                             ? 
@@ -40,10 +40,14 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
                         
                         <div className="card-body">
                             <h5 className="card-title">{hotel.title}</h5>
-                            <p className="card-text">{`${location.address}`}</p>
-                            <div className="d-flex justify-content-around">
-                                <p className="d-flex">{`${hotel.bed} bed`}</p>
-                                <p className="d-flex">{`price: ${hotel.price} (USD)`}</p>
+
+                            <div className="card-body-location">
+                                <p className="card-text text-muted">{`${location.address}`}</p>                                
+                            </div>
+
+                            <div className="d-flex justify-content-around align-items-center">
+                                <p className="d-flex my-1 card-footer-info">{`${hotel.bed} bed`}</p>
+                                <p className="d-flex my-1 card-footer-info">{`USD $${hotel.price} / day`}</p>
                             </div>
                         </div>
                     </Link>

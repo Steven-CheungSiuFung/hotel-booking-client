@@ -1,16 +1,25 @@
 import { DatePicker, Space } from 'antd';
-import monent from "moment";
+import moment from "moment";
 
-const DateSelect = ({formData, setFormData}) => {
+const DateSelect = ({formData, setFormData, to}) => {
+    const disable = (current) => {
+        if (to) {
+            return current.valueOf() < moment().subtract(1, "day") | current.valueOf() > moment(to).add(1, "day");
+        } else {
+            return current.valueOf() < moment().subtract(1, "day");
+        }
+        
+
+    }
 
     return (
-        <div className="cotainer-fluid d-flex mt-4 mb-3 justify-content-start align-items-center px-0">
+        <div className="cotainer-fluid d-flex justify-content-start align-items-center px-0">
             <div className="mx-0">
                 <Space direction="vertical">
                     <DatePicker 
                         placeholder="Check in"
                         onChange={(date, dateString) => setFormData({...formData, from: dateString})}
-                        disabledDate={(current) => current && current.valueOf() < monent().subtract(1, "day")}
+                        disabledDate={(current) => disable(current)}
                     />
                 </Space>
             </div>
@@ -19,7 +28,7 @@ const DateSelect = ({formData, setFormData}) => {
                     <DatePicker 
                         placeholder="Chect out"
                         onChange={(date, dateString) => setFormData({...formData, to: dateString})} 
-                        disabledDate={(current) => current && current.valueOf() < monent().subtract(1, "day")}
+                        disabledDate={(current) => disable(current)}
                     />
                 </Space>
             </div>

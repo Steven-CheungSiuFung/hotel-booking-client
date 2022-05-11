@@ -6,8 +6,16 @@
     margin-bottom: 5rem;
 }
 
+.hotel-list-header-banner {
+    width: 100%;
+    height: 36vh;
+    background-image: url("../../assets/world-map2.png");
+    background-size: contain;
+}
+
 .serach-form-container {
-    position: relative;
+    position: absolute;
+    align-self: center;
     top: 86%;
     height: 14vh;
     background-color: white;

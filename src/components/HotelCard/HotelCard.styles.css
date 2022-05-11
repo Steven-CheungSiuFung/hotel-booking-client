@@ -1,3 +1,11 @@
 .hotel-card-img {
     object-fit: cover;
 }
+
+.card-body-location {
+    height: 3.6rem;
+}
+
+.card-footer-info {
+    color: black;
+}
