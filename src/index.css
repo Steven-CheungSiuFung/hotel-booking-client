@@ -1,5 +1,5 @@
 :root {
-    --primary-color: rgba(255, 98, 41, 0.9);
+    --primary-color: rgb(255, 127, 80);
     --secondary-color: rgba(255, 98, 41, 1);
     --primary-light-color: rgba(255, 98, 41, 0.7);
   }
@@ -17,4 +17,14 @@ h1, h2, h3, h4, h5, h6, p {
   height: 25vh;
   width: 100%;
   margin-bottom: 1.5rem;
+}
+
+.btn-theme-color {
+  border-color: var(--secondary-color);
+  color: var(--secondary-color);
+}
+
+.btn-theme-color:hover {
+  background-color: var(--primary-light-color);
+  border-color: var(--primary-light-color);
 }

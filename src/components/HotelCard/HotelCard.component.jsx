@@ -39,7 +39,7 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
                         }
                         
                         <div className="card-body">
-                            <h5 className="card-title">{hotel.title}</h5>
+                            <h5 className="card-title lead mb-3"><strong>{hotel.title}</strong></h5>
 
                             <div className="card-body-location">
                                 <p className="card-text text-muted">{`${location.address}`}</p>                                
@@ -47,7 +47,7 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
 
                             <div className="d-flex justify-content-around align-items-center">
                                 <p className="d-flex my-1 card-footer-info">{`${hotel.bed} bed`}</p>
-                                <p className="d-flex my-1 card-footer-info">{`USD $${hotel.price} / day`}</p>
+                                <p className="d-flex my-1 card-footer-info">{`USD ${hotel.price}/day`}</p>
                             </div>
                         </div>
                     </Link>

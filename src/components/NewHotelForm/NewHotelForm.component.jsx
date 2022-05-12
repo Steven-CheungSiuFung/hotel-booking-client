@@ -6,6 +6,7 @@ import InputBox from '../InputBox/InputBox.component';
 import AutoComplete from '../AutoComplete/AutoComplete.component';
 import DateSelect from "../DateSelect/DateSelect.component";
 import NumberSelect from "../NumberSelect/NumberSelect.component";
+import { useNavigate } from 'react-router-dom';
 
 
 // import { createHotel } from "../../actions/hotel.action";
@@ -22,6 +23,7 @@ const INITIAL_STATE = {
 }
 
 const NewHotelForm = ({formSubmitAction}) => {
+    const navigate = useNavigate();
     const auth = useSelector(selectCurrentUser);
     const { token } = auth;
 
@@ -48,8 +50,7 @@ const NewHotelForm = ({formSubmitAction}) => {
             return fd.append(key, formData[key]);
         })
         const response = await formSubmitAction(token, fd);
-        console.log(response.data);
-        setFormData(INITIAL_STATE);
+        navigate("/dashboard/seller");
     }
 
   return (

@@ -97,7 +97,7 @@ const ViewHotel = () => {
                         <DateSelect formData={formData} setFormData={setFormData} to={moment(hotel.to).format("DD MMMM YYYY")}/>
                     </div>   
 
-                    <button onClick={handleClick} className="btn btn-outline-secondary">
+                    <button onClick={handleClick} className="btn btn-outline-secondary btn-theme-color">
                         {auth ? "Book Now" : "Login"}
                     </button>
                 </div>
