@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-import { Card, Avatar } from "antd";
 import moment from "moment";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { useEffect, useState } from "react";
@@ -7,9 +6,6 @@ import { getAccountBalance, getPayoutSetting } from "../../actions/stripe.action
 import { LoadingOutlined, SettingOutlined } from "@ant-design/icons";
 
 import "./StripeConnect.styles.css";
-
-const { Meta } = Card;
-
 
 const StripeConnect = () => {
     const auth = useSelector(selectCurrentUser);
@@ -43,12 +39,21 @@ const StripeConnect = () => {
     }, [token])
 
     return (
-        <div className="container-fluid">
+        <div className="container-fluid py-3">
             <div className="row gap-5">
                 <div className="col d-flex justify-content-center align-items-center">
-                    <Card>
-                        <Meta avatar={<Avatar>{user.name[0]}</Avatar>} title={user.name} description={`Johned ${moment(user.createdAt).fromNow()}`} />
-                    </Card>
+                    <div className="stripe-card d-flex">
+                        <div className="stripe-card-user-avatar d-flex justify-content-center align-items-center pe-3">
+                            <div className="stripe-card-user-avatar-content d-flex justify-content-center align-items-center">
+                                {user.name[0]}                                
+                            </div>
+
+                        </div>
+                        <div className="stripe-card-user-info d-flex flex-column justify-content-center">
+                            <p className="stripe-card-user-info-name d-flex ">{user.name}</p>
+                            <p className="stripe-card-user-info-description d-flex">{`Johned ${moment(user.createdAt).fromNow()}`}</p>
+                        </div>
+                    </div>
                 </div>
                 
                 {auth && 
@@ -59,28 +64,33 @@ const StripeConnect = () => {
                         ? 
                         <>
                             <div className="col d-flex justify-content-center align-items-center">
-                                <LoadingOutlined className="h1" />
+                                <LoadingOutlined className="h1 text-white" />
                             </div>
                             <div className="col d-flex justify-content-center align-items-center">
-                                <LoadingOutlined className="h1" />
+                                <LoadingOutlined className="h1 text-white" />
                             </div>
                         </>
                         :
                         <>
                             <div className="col d-flex justify-content-center align-items-center">
-                                <Card>
-                                    <Meta title={`${balance} ${activeCurrency}`} description={`account type: ${accountTypes}`} />
-                                </Card>
+                                <div className="stripe-card d-flex flex-column justify-content-center align-items-center">
+                                    <p className="stripe-card-balance-number d-flex">{`${balance} ${activeCurrency}`}</p>
+                                    <p className="stripe-card-balance-description d-flex">{`account type: ${accountTypes}`}</p>
+                                </div>
+
                             </div>
-                            <div className="col d-flex flex-column justify-content-center align-items-center pt-3">
+                            <div className="col d-flex flex-column justify-content-center align-items-center">
                                 {isPayoutLoading 
                                     ? 
-                                    <LoadingOutlined className="h1" /> 
+                                    <LoadingOutlined className="h1 text-white" /> 
                                     : 
-                                    <div onClick={payoutSetting} className="d-flex flex-column justify-content-center align-items-center payout-setting-icon">
-                                        <SettingOutlined className="h1" />
-                                        <h6>Payout Setting</h6>
+                                    <div className="stripe-card d-flex justify-content-center align-items-center">
+                                        <div onClick={payoutSetting} className="d-flex flex-column justify-content-center align-items-center payout-setting-icon">
+                                            <SettingOutlined className="h2 text-white" />
+                                            <h6 className="text-white m-0">Payout Setting</h6>
+                                        </div>                                        
                                     </div>
+
                                 }
                             </div>
                         </>

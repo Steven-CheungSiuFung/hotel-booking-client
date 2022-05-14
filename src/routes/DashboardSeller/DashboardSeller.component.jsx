@@ -32,13 +32,13 @@ const DashboardSeller = () => {
 
     const connected = () => {
         return (
-            <div className="container-fluid py-3">
-                <div className="d-flex align-items-center justify-content-between">
+            <div className="container-fluid p-3">
+                <div className="d-flex align-items-center justify-content-between p-2">
                     <div className="d-flex">
                         <h2 className="my-auto">Your hotels</h2>
                     </div>
                     <div className="d-flex">
-                            <Link to="/hotels/new-hotel" className="btn btn-primary">+ Add Hotels</Link>
+                            <Link to="/hotels/new-hotel" className="btn btn-outline-secondary btn-theme-color">+ Add Hotels</Link>
                     </div>
                 </div>
                 <div className="d-flex">
@@ -67,7 +67,7 @@ const DashboardSeller = () => {
 
     return (
         <>
-            <div className="container-fluid bg-light p-5">
+            <div className="container-fluid dashboard-stripe-container p-5">
                 <StripeConnect />
             </div>
             <DashboardNav />

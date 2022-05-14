@@ -1,7 +1,8 @@
 :root {
-    --primary-color: rgb(255, 127, 80);
+    --primary-color: #ff7f50;
     --secondary-color: rgba(255, 98, 41, 1);
     --primary-light-color: rgba(255, 98, 41, 0.7);
+    --primary-lighter-color: rgba(255, 127, 80, 0.65);
   }
 
 h1, h2, h3, h4, h5, h6, p {
@@ -20,11 +21,23 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .btn-theme-color {
-  border-color: var(--secondary-color);
-  color: var(--secondary-color);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .btn-theme-color:hover {
-  background-color: var(--primary-light-color);
-  border-color: var(--primary-light-color);
+  color: white;
+  background-color: var(--primary-lighter-color);
+  border-color: var(--primary-lighter-color);
 }
+
+.btn-theme-color:hover:focus {
+  background-color: var(--primary-lighter-color);
+  border-color: var(--primary-lighter-color);
+  box-shadow: 0 0 0 3px var(--primary-lighter-color);
+}
+
+.dashboard-stripe-container {
+  background-color: rgba(255, 127, 80, 0.65);
+}
+

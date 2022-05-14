@@ -66,7 +66,7 @@ const ViewHotel = () => {
             <div className="bg-theme-color bg-primary-header d-flex justify-content-center align-items-center p-5">
                 <h1 className="d-flex text-white">{hotel.title}</h1>
             </div>
-            <div className="row px-4 py-3">
+            <div className="container-fluid px-3 row py-3">
                 <div className="col-md-5 col-12 py-4 text-center">
                     <img className="img-fluid" src={`${process.env.REACT_APP_API}/hotel/image/${hotelId}`} alt="hotel-preview" />
                 </div>
@@ -102,9 +102,7 @@ const ViewHotel = () => {
                     </button>
                 </div>
             </div>
-
         </div>
-        
     )
 };
 

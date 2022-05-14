@@ -1,0 +1,36 @@
+.dashboard-nav-tabs {
+    list-style-type: none;
+    margin: 0;
+    padding: 1rem 0 0 0;
+}
+
+.dashboard-nav-item {
+    float: left;
+}
+
+.dashboard-nav-item-link {
+    text-align: center;
+    width: 18vh;
+    padding: 0.6rem 0.5rem;
+    border-radius: 5px 5px 0 0;
+    border: 1px solid rgba(0,0,0,.125);
+    font-weight: 500;
+}
+
+.dashboard-nav-item a:hover {
+    color: var(--primary-color);
+}
+
+.dashboard-nav-active {
+    color: var(--primary-color);
+    border-bottom: transparent;
+  }
+
+.dashboard-nav-inactive {
+    color: black;
+}
+
+.dashboard-nav-placeholder {
+    width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}

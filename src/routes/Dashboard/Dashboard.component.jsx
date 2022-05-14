@@ -25,17 +25,17 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className="container-fluid bg-light p-5">
+            <div className="container-fluid dashboard-stripe-container p-5">
                 <StripeConnect />
             </div>
             <DashboardNav />
-            <div className="container-fluid py-3">
-                <div className="row d-flex align-items-center">
+            <div className="container-fluid p-3">
+                <div className="row d-flex align-items-center p-2">
                     <div className="col-md-10">
                         <h2 className="my-auto">Your booking</h2>
                     </div>
                     <div className="col-md-2">
-                        <Link to="/" className="btn btn-primary">Browse Hotels</Link>
+                        <Link to="/" className="btn btn-outline-secondary btn-theme-color">Browse Hotels</Link>
                     </div>
                 </div>
                 <div className="py-3">
