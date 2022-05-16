@@ -8,6 +8,7 @@ import StripeConnect from '../../components/StripeConnect/StripeConnect.componen
 import OrderCard from '../../components/OrderCard/OrderCard.component';
 
 import { getHotelBooking } from '../../actions/hotel.action';
+import Footer from '../../components/Footer/Footer.component';
 
 const Dashboard = () => {
     const {token} = useSelector(selectCurrentUser);
@@ -16,7 +17,18 @@ const Dashboard = () => {
     const loadHotelBooking = async () => {
         const response = await getHotelBooking(token);
         console.log(response.data);
-        setOrder(response.data);
+        setOrder(response.data);                 
+        
+        // try {
+        //     const response = await getHotelBooking(token);
+        //     console.log(response.data);
+        //     if (response.data.hotel) {
+        //         setOrder(response.data);                 
+        //     }
+        // } catch (error) {
+        //     console.log(error);
+        // }
+
     }
 
     useEffect(() => {
@@ -30,18 +42,21 @@ const Dashboard = () => {
             </div>
             <DashboardNav />
             <div className="container-fluid p-3">
-                <div className="row d-flex align-items-center p-2">
-                    <div className="col-md-10">
+                <div className="d-flex align-items-center justify-content-between p-2">
+                    <div className="d-flex">
                         <h2 className="my-auto">Your booking</h2>
                     </div>
-                    <div className="col-md-2">
-                        <Link to="/" className="btn btn-outline-secondary btn-theme-color">Browse Hotels</Link>
+                    <div className="d-flex">
+                            <Link to="/" className="btn-theme">Browse Hotels</Link>
                     </div>
                 </div>
                 <div className="py-3">
                     {order.map((order) => <OrderCard key={order._id} order={order} />)}
                 </div>
             </div>
+            <div className="container-fluid text-center px-0 mt-5">
+                <Footer footerTheme="footer-container-white" />
+            </div>   
         </>
         
 

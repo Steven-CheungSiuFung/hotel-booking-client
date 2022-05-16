@@ -9,7 +9,7 @@ const Home = () => {
                 <HotelsList />
             </div>
             <div className="container-fluid text-center px-0 mt-5">
-                <Footer />
+                <Footer footerTheme="footer-container-color" />
             </div>        
         </>
 

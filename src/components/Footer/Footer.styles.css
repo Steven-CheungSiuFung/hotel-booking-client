@@ -1,3 +1,9 @@
-.footer-container {
+.footer-container-color {
     background-color: var(--primary-light-color);
+    color: white;
+}
+
+.footer-container-white {
+    background-color: white;
+    color: gray;
 }

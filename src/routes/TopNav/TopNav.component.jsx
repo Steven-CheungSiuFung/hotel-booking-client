@@ -26,7 +26,7 @@ const TopNav = () => {
                         {auth 
                             ? 
                             <Fragment>
-                                <Link className="nav-link nav-bar-link" to="/dashboard">Dashboard</Link>
+                                <Link className="nav-bar-link top-nav-dashboard" to="/dashboard">Dashboard</Link>
                                 <Link className="nav-link nav-bar-link" to="/login" onClick={logout}>Logout</Link>
                             </Fragment> 
                             : 

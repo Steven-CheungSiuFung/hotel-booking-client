@@ -9,3 +9,13 @@
 .card-footer-info {
     color: black;
 }
+
+.hotel-card-edit-icon {
+    cursor: pointer;
+    color: orange;
+}
+
+.hotel-card-delete-icon {
+    cursor: pointer;
+    color: red;
+}

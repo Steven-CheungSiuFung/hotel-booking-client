@@ -10,6 +10,7 @@ import { createConnectAccount } from '../../actions/stripe.action';
 
 import { BankOutlined, LoadingOutlined } from "@ant-design/icons";
 import SellerHotels from '../../components/SellerHotels/SellerHotels.component';
+import Footer from '../../components/Footer/Footer.component';
 
 const DashboardSeller = () => {
     const auth = useSelector(selectCurrentUser);
@@ -38,7 +39,7 @@ const DashboardSeller = () => {
                         <h2 className="my-auto">Your hotels</h2>
                     </div>
                     <div className="d-flex">
-                            <Link to="/hotels/new-hotel" className="btn btn-outline-secondary btn-theme-color">+ Add Hotels</Link>
+                            <Link to="/hotels/new-hotel" className="btn-theme">+ Add Hotels</Link>
                     </div>
                 </div>
                 <div className="d-flex">
@@ -78,6 +79,9 @@ const DashboardSeller = () => {
                 ? connected() 
                 : notConnected()
             }
+            <div className="container-fluid text-center px-0 mt-5">
+                <Footer footerTheme="footer-container-white" />
+            </div>  
         </>
         
 

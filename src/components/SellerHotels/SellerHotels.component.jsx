@@ -5,6 +5,7 @@ import { selectCurrentUser } from '../../store/user/user.selector';
 import { getSellerHotels, deleteHotel } from '../../actions/hotel.action';
 
 import HotelCard from '../HotelCard/HotelCard.component';
+import Footer from '../Footer/Footer.component';
 
 
 const SellerHotels = () => {
@@ -23,16 +24,15 @@ const SellerHotels = () => {
     const handleDeleteHotel = async (hotelId) => {
         if (!window.confirm("Are you sure delete this hotel?")) return;
         const response = await deleteHotel(token, hotelId);
-        console.log(response.data);
         getHotelsList();
     }
 
     return (
         <>
-            <div className="container-fluid py-4">
+            <div className="container-fluid pt-4 d-flex flex-column">
                 <div className="row gap-0 d-flex justify-content-start">
                     {hotels.map(hotel => <HotelCard key={hotel._id} hotel={hotel} user={user} handleDeleteHotel={handleDeleteHotel} />)}
-                </div>
+                </div>           
             </div> 
         </>
     )

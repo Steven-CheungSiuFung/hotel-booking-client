@@ -1,3 +1,4 @@
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
@@ -53,9 +54,9 @@ const HotelCard = ({hotel, user, handleDeleteHotel}) => {
                     </Link>
                     {user?._id === hotel.postedBy._id 
                         ? 
-                        (<div className="d-flex justify-content-around">
-                            <div onClick={onClickEdit}>Edit</div>
-                            <div onClick={onClickDelete}>Delete</div>
+                        (<div className="d-flex justify-content-around mb-3">
+                            <div className="hotel-card-edit-icon" onClick={onClickEdit}><EditOutlined /></div>
+                            <div className="hotel-card-delete-icon" onClick={onClickDelete}><DeleteOutlined /></div>
                         </div>) 
                         : null}
                 </div>

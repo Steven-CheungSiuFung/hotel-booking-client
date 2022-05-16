@@ -65,7 +65,7 @@ const RegisterForm = () => {
                     <label htmlFor="password">password</label>
                 </div>
                 <div class="d-grid gap-2 py-2">
-                    <button className="btn btn-outline-secondary btn-theme-color">Submit</button>
+                    <button className="btn-theme">Submit</button>
                 </div> 
             </form>
         </div>

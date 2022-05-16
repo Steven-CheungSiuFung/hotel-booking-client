@@ -87,7 +87,7 @@ const NewHotelForm = ({formSubmitAction}) => {
                         
                         <InputBox type="text" name="price" value={price} onChange={onChangeHandler} />
                         <div className="d-grid py-2">
-                            <button className="btn btn-outline-primary">Save</button>
+                            <button className="btn-theme">Save</button>
                         </div>
                         
 
